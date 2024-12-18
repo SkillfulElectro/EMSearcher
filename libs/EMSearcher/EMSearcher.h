@@ -35,6 +35,10 @@ private:
     void process_word(const std::string &word, int doc_id, int word_position);
 
 public:
+    int negative_score_for_unseen_words_in_doc;
+    EMSearcher() {
+        negative_score_for_unseen_words_in_doc = 4;
+    }
 
     void configure(const std::unordered_set<char> &delimiters_,
                    const std::unordered_set<std::string> &skip_word_index_,

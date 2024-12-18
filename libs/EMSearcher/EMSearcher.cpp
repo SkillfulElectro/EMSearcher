@@ -105,7 +105,7 @@ std::vector<DocSearchState> EMSearcher::search(const std::string &query) {
 
     std::vector<DocSearchState> sorted_results;
     for (auto &[_, state] : results) {
-        state.negative_score += (query_word_index.size() - state.matched_word_count) * 4;
+        state.negative_score += (query_word_index.size() - state.matched_word_count) * negative_score_for_unseen_words_in_doc;
         sorted_results.push_back(state);
     }
     std::sort(sorted_results.begin(), sorted_results.end(),
